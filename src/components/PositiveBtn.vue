@@ -1,8 +1,14 @@
 <template>
-  <button class="positive-btn">Добавити дизайн</button>
+  <button class="positive-btn">{{title}}</button>
 </template>
 <script>
-export default {};
+export default {
+  props:{
+    title:{
+      type: String
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

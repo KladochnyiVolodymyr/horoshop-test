@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <PositiveBtn />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import PositiveBtn from "./components/PositiveBtn";
-
 export default {
   name: "app",
-  components: {
-    PositiveBtn
-  }
+  components: {}
 };
 </script>
 
-<style>
+<style lang="scss">
+body {
+  margin: 0;
+}
 </style>
