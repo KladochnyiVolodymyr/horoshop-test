@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import PositiveBtn from "./PositiveBtn";
+import PositiveBtn from "./buttons/PositiveBtn";
 import DesignsCard from "./DesignsCard";
 
 export default {
