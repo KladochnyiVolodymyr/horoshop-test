@@ -7,6 +7,7 @@
       <div class="fields-header">
         <div class="fields__id">
           <Input placeholder="###" />
+          <span class="fields__icon">№</span>
         </div>
         <div class="fields__title">
           <Input placeholder="Design Title" />
@@ -18,6 +19,7 @@
       <div class="fields-footer">
         <div class="fields__link">
           <Input placeholder="https://design###.horoshop.ua/" />
+          <img class="fields__icon" src="@/assets/svg/link.svg" />
         </div>
       </div>
     </section>
@@ -72,9 +74,18 @@ export default {
   &__id {
     margin-right: 8px;
     max-width: 80px;
+    position: relative;
   }
   &__title {
     width: 100%;
+  }
+  &__link {
+    position: relative;
+  }
+  &__icon {
+    position: absolute;
+    left: -25px;
+    top: 8px;
   }
 }
 </style>
