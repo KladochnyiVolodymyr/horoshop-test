@@ -2,9 +2,9 @@
   <div class="designs">
     <div class="designs__header">
       <h1 class="designs__title">Все дизайны</h1>
-      <PositiveBtn title="Добавити дизайн" />
+      <PrimaryBtn title="Добавити дизайн" />
     </div>
-    <div class="designs__list">
+    <section class="designs__list">
       <DesignsCard
         v-for="card in designsCards"
         :key="card.id"
@@ -12,17 +12,17 @@
         :id="card.id"
         :img="card.img"
       />
-    </div>
+    </section>
   </div>
 </template>
 <script>
-import PositiveBtn from "./buttons/PositiveBtn";
+import PrimaryBtn from "./buttons/PrimaryBtn";
 import DesignsCard from "./DesignsCard";
 
 export default {
   name: "app",
   components: {
-    PositiveBtn,
+    PrimaryBtn,
     DesignsCard
   },
   data() {
