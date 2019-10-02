@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
-    <img class="card__img" :src="require(`../assets/img/${img}.png`)" />
+  <router-link :to="editLink" class="card">
+    <img class="card__img" :src="img" />
     <div class="card-data">
       <div class="card-data__id">{{id}}</div>
       <div class="card-data__title">{{title}}</div>
     </div>
-  </div>
+  </router-link>
 </template>
 <script>
 export default {
@@ -14,10 +14,15 @@ export default {
       type: String
     },
     id: {
-      type: Number
+      type: String
     },
     img: {
       type: String
+    }
+  },
+  computed: {
+    editLink() {
+      return `/edit/${this.id}`;
     }
   }
 };

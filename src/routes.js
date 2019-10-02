@@ -5,6 +5,10 @@ import AddNew from "./components/AddNew";
 export default new VueRouter({
   routes: [
     {
+      path: "/edit/:id",
+      component: AddNew
+    },
+    {
       path: "/add",
       component: AddNew
     },

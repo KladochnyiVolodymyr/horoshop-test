@@ -6,11 +6,11 @@
     </div>
     <section class="designs__list">
       <DesignsCard
-        v-for="card in designsCards"
+        v-for="card in getDataTable"
         :key="card.id"
-        :title="card.title"
+        :title="card.name"
         :id="card.id"
-        :img="card.img"
+        :img="card.images[0]"
       />
     </section>
   </div>
@@ -26,36 +26,17 @@ export default {
     DesignsCard
   },
   data() {
-    return {
-      designsCards: [
-        {
-          id: 105,
-          title: "Ostrov",
-          img: "card-img"
-        },
-        {
-          id: 104,
-          title: "Ostrov",
-          img: "card-img"
-        },
-        {
-          id: 103,
-          title: "Ostrov",
-          img: "card-img"
-        },
-        {
-          id: 102,
-          title: "Ostrov",
-          img: "card-img"
-        },
-        {
-          id: 101,
-          title: "Ostrov",
-          img: "card-img"
-        }
-      ]
-    };
-  }
+    return {};
+  },
+  mounted() {
+    this.$store.dispatch("getData");
+  },
+  computed: {
+    getDataTable() {
+      return this.$store.state.designsData;
+    }
+  },
+  methods: {}
 };
 </script>
 <style lang="scss" scoped>
@@ -77,6 +58,16 @@ export default {
     grid-template-columns: 300px 300px 300px 300px;
     grid-column-gap: 20px;
     grid-row-gap: 40px;
+    justify-content: center;
+    @media (max-width: 1324px) {
+      grid-template-columns: 300px 300px 300px;
+    }
+    @media (max-width: 1024px) {
+      grid-template-columns: 300px 300px;
+    }
+    @media (max-width: 700px) {
+      grid-template-columns: 300px;
+    }
   }
 }
 </style>

@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="fields-images">
-        <AddPicture />
+        <AddPicture :images="getCurrentDesign.images" />
       </div>
       <div class="fields-footer">
         <div class="fields__link">
@@ -40,6 +40,20 @@ export default {
     DeleteBtn,
     Input,
     AddPicture
+  },
+  data() {
+    return {};
+  },
+  mounted() {
+    const id = this.$route.params.id;
+    if (id) {
+      this.$store.dispatch("getCurrentDesign", id);
+    }
+  },
+  computed: {
+    getCurrentDesign() {
+      return this.$store.state.currentDesign;
+    }
   }
 };
 </script>
