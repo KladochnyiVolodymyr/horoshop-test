@@ -6,6 +6,9 @@ export default {
   props: {
     title: {
       type: String
+    },
+    url: {
+      type: String
     }
   }
 };

@@ -1,16 +1,16 @@
 <template>
   <div class="add-page">
-    <div class="add-page__back">
+    <router-link to="/" class="add-page__back">
       <img src="@/assets/svg/back-arrow.svg" />
-    </div>
+    </router-link>
     <section class="fields">
       <div class="fields-header">
         <div class="fields__id">
-          <Input placeholder="###" />
+          <Input placeholder="###" v-model="getCurrentDesign.id" />
           <span class="fields__icon">№</span>
         </div>
         <div class="fields__title">
-          <Input placeholder="Design Title" />
+          <Input placeholder="Design Title" v-model="getCurrentDesign.name" />
         </div>
       </div>
       <div class="fields-images">
@@ -18,7 +18,7 @@
       </div>
       <div class="fields-footer">
         <div class="fields__link">
-          <Input placeholder="https://design###.horoshop.ua/" />
+          <Input placeholder="https://design###.horoshop.ua/" v-model="getCurrentDesign.link" />
           <img class="fields__icon" src="@/assets/svg/link.svg" />
         </div>
       </div>

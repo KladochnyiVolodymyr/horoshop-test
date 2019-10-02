@@ -20,6 +20,12 @@ export default new Vuex.Store({
     },
     SET_CURRENT_DESIGN: (state, item) => {
       state.currentDesign = { ...item };
+    },
+    ADD_NEW_IMG: (state, src) => {
+      state.currentDesign.images.push({
+        src: src,
+        id: new Date().getTime()
+      });
     }
   },
   actions: {
@@ -30,6 +36,9 @@ export default new Vuex.Store({
     async getCurrentDesign({ commit }, id) {
       const { data } = await getDesignById(id);
       commit("SET_CURRENT_DESIGN", data);
+    },
+    addNewImg({ commit }, src) {
+      commit("ADD_NEW_IMG", src);
     }
   }
 });

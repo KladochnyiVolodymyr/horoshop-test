@@ -2,7 +2,9 @@
   <div class="designs">
     <div class="designs__header">
       <h1 class="designs__title">Все дизайны</h1>
-      <PrimaryBtn title="Добавити дизайн" />
+      <router-link to="/add" class="designs__add-btn">
+        <PrimaryBtn title="Добавити дизайн" />
+      </router-link>
     </div>
     <section class="designs__list">
       <DesignsCard
@@ -10,7 +12,7 @@
         :key="card.id"
         :title="card.name"
         :id="card.id"
-        :img="card.images[0]"
+        :img="card.images[0].src"
       />
     </section>
   </div>
@@ -41,6 +43,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .designs {
+  height: 100%;
   background: #2c3d39;
   padding: 24px 32px;
   &__title {

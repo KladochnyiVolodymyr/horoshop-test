@@ -3,8 +3,10 @@
     <div class="add-picture__empty" v-if="isEmpty">
       <img src="@/assets/svg/empty-img.svg" />
     </div>
-    <div v-else>
-      <img v-for="img in images" :key="img.id" :src="img.src" />
+    <div class="add-picture__images" v-else>
+      <div class="picture-item" v-for="img in images" :key="img.id">
+        <img class="picture-item__img" :src="img.src" />
+      </div>
       <input type="file" @change="addNewImg" />
     </div>
   </div>
@@ -22,11 +24,10 @@ export default {
     }
   },
   methods: {
-    addNewImg() {
-      console.log(this.files);
-      /* let file = this.files[0];
+    addNewImg(event) {
+      let file = event.target.files[0];
       const _PREVIEW_URL = URL.createObjectURL(file);
-      console.log(_PREVIEW_URL); */
+      this.$store.dispatch("addNewImg", _PREVIEW_URL);
     }
   }
 };
