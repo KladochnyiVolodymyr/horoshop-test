@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="fields-images">
-        <AddPicture :images="getCurrentDesign.images" />
+        <ManagePictures :images="getCurrentDesign.images" />
       </div>
       <div class="fields-footer">
         <div class="fields__link">
@@ -33,13 +33,13 @@
 import DeleteBtn from "./buttons/DeleteBtn";
 import PrimaryBtn from "./buttons/PrimaryBtn";
 import Input from "./Input";
-import AddPicture from "./AddPicture";
+import ManagePictures from "./ManagePictures";
 export default {
   components: {
     PrimaryBtn,
     DeleteBtn,
     Input,
-    AddPicture
+    ManagePictures
   },
   data() {
     return {};

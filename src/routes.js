@@ -1,16 +1,16 @@
 import VueRouter from "vue-router";
 import AllDesigns from "./components/AllDesigns";
-import AddNew from "./components/AddNew";
+import EditDesign from "./components/EditDesign";
 
 export default new VueRouter({
   routes: [
     {
       path: "/edit/:id",
-      component: AddNew
+      component: EditDesign
     },
     {
       path: "/add",
-      component: AddNew
+      component: EditDesign
     },
     {
       path: "/",
