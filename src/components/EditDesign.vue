@@ -33,7 +33,8 @@
     </section>
     <div class="add-page__btns">
       <DeleteBtn @click.native="deleteDesign" />
-      <PrimaryBtn title="Сохранить и закрыть" @click.native="saveDesign" />
+      <PrimaryBtn title="Сохранить и закрыть" @click.native="addNewDesign" />
+      <!-- saveDesign -->
     </div>
   </div>
 </template>
@@ -85,6 +86,10 @@ export default {
     },
     deleteDesign() {
       this.$store.dispatch("deleteDesign", this.getCurrentDesign._id);
+      this.$router.push("/");
+    },
+    addNewDesign() {
+      this.$store.dispatch("addDesign", this.getCurrentDesign);
       this.$router.push("/");
     }
   }

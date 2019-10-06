@@ -37,3 +37,12 @@ export function deleteDesign(id) {
     resolve({ data: dataArray });
   });
 }
+
+export function addNewDesign(newDesign) {
+  dataArray.push(newDesign);
+  return new Promise(resolve => {
+    resolve({
+      data: dataArray
+    });
+  });
+}

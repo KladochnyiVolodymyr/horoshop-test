@@ -4,7 +4,8 @@ import {
   getDataApi,
   getDesignById,
   sendEditedDesign,
-  deleteDesign
+  deleteDesign,
+  addNewDesign
 } from "../api/api";
 
 Vue.use(Vuex);
@@ -38,7 +39,7 @@ export default new Vuex.Store({
         return img.id !== id;
       });
     },
-    UPDATE_CURRENT_VALUE(state, data) {
+    UPDATE_CURRENT_VALUE: (state, data) => {
       state.currentDesign[data.name] = data.value;
     },
     UPD_DATA: (state, updItem) => {
@@ -56,6 +57,10 @@ export default new Vuex.Store({
       state.currentDesign.images = [];
       state.currentDesign.name = "";
       state.currentDesign.link = "";
+    },
+    ADD_NEW_DESIGN: (state, newDesign) => {
+      state.currentDesign._id = new Date().getTime();
+      state.designsData.push(newDesign);
     }
   },
   actions: {
@@ -74,6 +79,10 @@ export default new Vuex.Store({
     async deleteDesign({ commit }, id) {
       const { data } = await deleteDesign(id);
       commit("UPD_DATA", data);
+    },
+    async addDesign({ commit }, newDesign) {
+      const { data } = await addNewDesign(newDesign);
+      commit("ADD_NEW_DESIGN", data);
     },
     addNewImg({ commit }, src) {
       commit("ADD_NEW_IMG", src);
