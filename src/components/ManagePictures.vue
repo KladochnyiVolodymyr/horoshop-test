@@ -1,9 +1,9 @@
 <template>
   <div class="add-picture">
-    <div class="add-picture__empty" v-if="isEmpty">
+    <!-- <div class="add-picture__empty" v-if="isEmpty">
       <img src="@/assets/svg/empty-img.svg" />
-    </div>
-    <div class="add-picture__images" v-else>
+    </div>-->
+    <div class="add-picture__images">
       <div class="picture-item" v-for="img in images" :key="img.id">
         <img class="picture-item__img" :src="img.src" />
         <div class="picture-item__delete" @click="deleteImg(img.id)">
@@ -13,7 +13,12 @@
       <div class="add-picture__new">
         <input type="file" @change="addNewImg" id="file" />
         <label for="file">
-          <img src="@/assets/svg/add.svg" />
+          <div class="add-picture__empty" v-if="isEmpty">
+            <img src="@/assets/svg/empty-img.svg" />
+          </div>
+          <div class="add-picture__not-empty" v-else>
+            <img src="@/assets/svg/add.svg" />
+          </div>
         </label>
       </div>
     </div>
@@ -57,24 +62,25 @@ export default {
     align-items: center;
     cursor: pointer;
   }
+  &__not-empty {
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-style: dotted;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   &__images {
     display: flex;
   }
   &__new {
+    width: 100%;
     input {
       width: 0px;
       height: 0px;
       position: absolute;
-    }
-    label {
-      width: 120px;
-      height: 120px;
-      border: 2px solid rgba(0, 0, 0, 0.1);
-      border-style: dotted;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
   }
 }
