@@ -32,7 +32,7 @@
       </div>
     </section>
     <div class="add-page__btns">
-      <DeleteBtn @click.native="deleteDesign" />
+      <DeleteBtn @click.native="deleteDesign" v-if="isRouterId" />
       <PrimaryBtn title="Сохранить и закрыть" @click.native="save" />
     </div>
   </div>
@@ -62,6 +62,9 @@ export default {
   computed: {
     getCurrentDesign() {
       return this.$store.state.currentDesign;
+    },
+    isRouterId() {
+      return this.$route.params.id;
     }
   },
   methods: {
@@ -85,7 +88,7 @@ export default {
       this.$router.push("/");
     },
     save() {
-      if (this.$route.params.id) {
+      if (this.isRouterId) {
         this.$store.dispatch("sendData", this.getCurrentDesign);
       } else {
         this.$store.dispatch("addDesign", this.getCurrentDesign);
