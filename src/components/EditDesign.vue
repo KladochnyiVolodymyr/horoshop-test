@@ -33,8 +33,7 @@
     </section>
     <div class="add-page__btns">
       <DeleteBtn @click.native="deleteDesign" />
-      <PrimaryBtn title="Сохранить и закрыть" @click.native="addNewDesign" />
-      <!-- saveDesign -->
+      <PrimaryBtn title="Сохранить и закрыть" @click.native="save" />
     </div>
   </div>
 </template>
@@ -43,6 +42,7 @@ import DeleteBtn from "./buttons/DeleteBtn";
 import PrimaryBtn from "./buttons/PrimaryBtn";
 import Input from "./Input";
 import ManagePictures from "./ManagePictures";
+
 export default {
   components: {
     PrimaryBtn,
@@ -80,16 +80,16 @@ export default {
         value: value
       });
     },
-    saveDesign() {
-      this.$store.dispatch("sendData", this.getCurrentDesign);
-      this.$router.push("/");
-    },
     deleteDesign() {
       this.$store.dispatch("deleteDesign", this.getCurrentDesign._id);
       this.$router.push("/");
     },
-    addNewDesign() {
-      this.$store.dispatch("addDesign", this.getCurrentDesign);
+    save() {
+      if (this.$route.params.id) {
+        this.$store.dispatch("sendData", this.getCurrentDesign);
+      } else {
+        this.$store.dispatch("addDesign", this.getCurrentDesign);
+      }
       this.$router.push("/");
     }
   }

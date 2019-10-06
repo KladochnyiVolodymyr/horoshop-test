@@ -58,9 +58,9 @@ export default new Vuex.Store({
       state.currentDesign.name = "";
       state.currentDesign.link = "";
     },
-    ADD_NEW_DESIGN: (state, newDesign) => {
+    ADD_NEW_DESIGN: (state, newDesignsData) => {
       state.currentDesign._id = new Date().getTime();
-      state.designsData.push(newDesign);
+      state.designsData = [...newDesignsData];
     }
   },
   actions: {

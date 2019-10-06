@@ -1,8 +1,5 @@
 <template>
   <div class="add-picture">
-    <!-- <div class="add-picture__empty" v-if="isEmpty">
-      <img src="@/assets/svg/empty-img.svg" />
-    </div>-->
     <div class="add-picture__images">
       <div class="picture-item" v-for="img in images" :key="img.id">
         <img class="picture-item__img" :src="img.src" />
