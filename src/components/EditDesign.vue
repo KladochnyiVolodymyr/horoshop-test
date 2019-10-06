@@ -32,8 +32,8 @@
       </div>
     </section>
     <div class="add-page__btns">
-      <DeleteBtn />
-      <PrimaryBtn title="Сохранить и закрыть" @click.native="saveData" />
+      <DeleteBtn @click.native="deleteDesign" />
+      <PrimaryBtn title="Сохранить и закрыть" @click.native="saveDesign" />
     </div>
   </div>
 </template>
@@ -79,8 +79,12 @@ export default {
         value: value
       });
     },
-    saveData() {
+    saveDesign() {
       this.$store.dispatch("sendData", this.getCurrentDesign);
+    },
+    deleteDesign() {
+      this.$store.dispatch("deleteDesign", this.getCurrentDesign._id);
+      this.$router.push("/");
     }
   }
 };

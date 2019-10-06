@@ -1,6 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { getDataApi, getDesignById, sendEditedData } from "../api/api";
+import {
+  getDataApi,
+  getDesignById,
+  sendEditedDesign,
+  deleteDesign
+} from "../api/api";
 
 Vue.use(Vuex);
 
@@ -65,7 +70,11 @@ export default new Vuex.Store({
       commit("UPDATE_CURRENT_VALUE", data);
     },
     async sendData({ commit }, item) {
-      const { data } = await sendEditedData(item);
+      const { data } = await sendEditedDesign(item);
+      commit("UPD_DATA", data);
+    },
+    async deleteDesign({ commit }, id) {
+      const { data } = await deleteDesign(id);
       commit("UPD_DATA", data);
     }
   }

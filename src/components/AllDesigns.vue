@@ -43,7 +43,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .designs {
-  height: 100%;
   background: #2c3d39;
   padding: 24px 32px;
   &__title {

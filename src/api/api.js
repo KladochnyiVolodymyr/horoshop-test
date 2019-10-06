@@ -15,7 +15,7 @@ export function getDesignById(id) {
   });
 }
 
-export function sendEditedData(updItem) {
+export function sendEditedDesign(updItem) {
   let updatedItem = { ...updItem };
   dataArray = dataArray.map(item => {
     if (item._id == updatedItem._id) {
@@ -26,5 +26,14 @@ export function sendEditedData(updItem) {
   });
   return new Promise(resolve => {
     resolve({ data: updatedItem });
+  });
+}
+
+export function deleteDesign(id) {
+  dataArray = dataArray.filter(design => {
+    return design._id !== id;
+  });
+  return new Promise(resolve => {
+    resolve({ data: dataArray });
   });
 }
