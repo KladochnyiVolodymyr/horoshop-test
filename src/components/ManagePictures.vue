@@ -71,6 +71,7 @@ export default {
   }
   &__images {
     display: flex;
+    flex-wrap: wrap;
   }
   &__new {
     width: 100%;
@@ -85,6 +86,7 @@ export default {
   margin-right: 8px;
   position: relative;
   height: 100%;
+  margin-bottom: 20px;
   &:hover {
     cursor: pointer;
     .picture-item__delete {

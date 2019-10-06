@@ -97,11 +97,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .add-page {
-  padding: 24px 32px 0px 37px;
+  padding: 24px 32px 30px 37px;
   display: flex;
   position: relative;
   justify-content: space-between;
+  @media (max-width: 1024px) {
+    display: block;
+  }
   &__btns {
+    @media (max-width: 1024px) {
+      text-align: center;
+    }
     :first-child {
       margin-right: 8px;
     }
@@ -116,6 +122,14 @@ export default {
   margin-left: 85px;
   width: 600px;
   padding-top: 4px;
+  @media (max-width: 1024px) {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
+  @media (max-width: 700px) {
+    width: 100%;
+  }
   &-header {
     display: flex;
     margin-bottom: 28px;
