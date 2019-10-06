@@ -3,7 +3,7 @@
     <div class="designs__header">
       <h1 class="designs__title">Все дизайны</h1>
       <router-link to="/add" class="designs__add-btn">
-        <PrimaryBtn title="Добавити дизайн" />
+        <PrimaryBtn title="Добавити дизайн" @click.native="cleanCurrentDesign" />
       </router-link>
     </div>
     <section class="designs__list">
@@ -38,7 +38,11 @@ export default {
       return this.$store.state.designsData;
     }
   },
-  methods: {}
+  methods: {
+    cleanCurrentDesign() {
+      this.$store.dispatch("cleanCurrentDesign");
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

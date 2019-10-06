@@ -49,6 +49,13 @@ export default new Vuex.Store({
           return item;
         }
       });
+    },
+    CLEAN_CURRENT_DESIGN: state => {
+      state.currentDesign.id = "";
+      state.currentDesign._id = "";
+      state.currentDesign.images = [];
+      state.currentDesign.name = "";
+      state.currentDesign.link = "";
     }
   },
   actions: {
@@ -60,6 +67,14 @@ export default new Vuex.Store({
       const { data } = await getDesignById(_id);
       commit("SET_CURRENT_DESIGN", data);
     },
+    async sendData({ commit }, item) {
+      const { data } = await sendEditedDesign(item);
+      commit("UPD_DATA", data);
+    },
+    async deleteDesign({ commit }, id) {
+      const { data } = await deleteDesign(id);
+      commit("UPD_DATA", data);
+    },
     addNewImg({ commit }, src) {
       commit("ADD_NEW_IMG", src);
     },
@@ -69,13 +84,8 @@ export default new Vuex.Store({
     updateCurrentValue({ commit }, data) {
       commit("UPDATE_CURRENT_VALUE", data);
     },
-    async sendData({ commit }, item) {
-      const { data } = await sendEditedDesign(item);
-      commit("UPD_DATA", data);
-    },
-    async deleteDesign({ commit }, id) {
-      const { data } = await deleteDesign(id);
-      commit("UPD_DATA", data);
+    cleanCurrentDesign({ commit }) {
+      commit("CLEAN_CURRENT_DESIGN");
     }
   }
 });
