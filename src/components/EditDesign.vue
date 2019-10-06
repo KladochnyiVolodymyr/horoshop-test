@@ -81,6 +81,7 @@ export default {
     },
     saveDesign() {
       this.$store.dispatch("sendData", this.getCurrentDesign);
+      this.$router.push("/");
     },
     deleteDesign() {
       this.$store.dispatch("deleteDesign", this.getCurrentDesign._id);
