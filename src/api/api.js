@@ -7,7 +7,7 @@ export function getDataApi() {
 }
 
 export function getDesignById(id) {
-  const currentItem = data.filter(item => {
+  const currentItem = dataArray.filter(item => {
     return item.id == id;
   })[0];
   return new Promise(resolve => {
@@ -16,14 +16,15 @@ export function getDesignById(id) {
 }
 
 export function sendEditedData(updItem) {
+  let updatedItem = { ...updItem };
   dataArray = dataArray.map(item => {
-    if (item.id == updItem.id) {
-      return updItem;
+    if (item.id == updatedItem.id) {
+      return updatedItem;
     } else {
       return item;
     }
   });
   return new Promise(resolve => {
-    resolve({ data: updItem });
+    resolve({ data: updatedItem });
   });
 }
