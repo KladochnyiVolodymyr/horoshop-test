@@ -18,7 +18,7 @@ export function getDesignById(id) {
 export function sendEditedData(updItem) {
   let updatedItem = { ...updItem };
   dataArray = dataArray.map(item => {
-    if (item.id == updatedItem.id) {
+    if (item._id == updatedItem._id) {
       return updatedItem;
     } else {
       return item;

@@ -53,9 +53,9 @@ export default {
     return {};
   },
   mounted() {
-    const id = this.$route.params.id;
-    if (id) {
-      this.$store.dispatch("getCurrentDesign", id);
+    const _id = this.$route.params.id;
+    if (_id) {
+      this.$store.dispatch("getCurrentDesign", _id);
     }
   },
   computed: {

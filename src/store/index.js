@@ -9,6 +9,7 @@ export default new Vuex.Store({
     designsData: [],
     currentDesign: {
       id: "",
+      _id: "",
       name: "",
       images: [],
       link: ""
@@ -37,7 +38,7 @@ export default new Vuex.Store({
     },
     UPD_DATA: (state, updItem) => {
       state.designsData = state.designsData.map(item => {
-        if (item.id == updItem.id) {
+        if (item._id == updItem._id) {
           return updItem;
         } else {
           return item;
@@ -50,8 +51,8 @@ export default new Vuex.Store({
       const { data } = await getDataApi();
       commit("SET_DATA", data);
     },
-    async getCurrentDesign({ commit }, id) {
-      const { data } = await getDesignById(id);
+    async getCurrentDesign({ commit }, _id) {
+      const { data } = await getDesignById(_id);
       commit("SET_CURRENT_DESIGN", data);
     },
     addNewImg({ commit }, src) {

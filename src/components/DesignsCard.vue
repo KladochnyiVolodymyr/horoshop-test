@@ -31,6 +31,7 @@ export default {
 .card {
   &__img {
     margin-bottom: 16px;
+    max-width: 300px;
   }
   &-data {
     display: flex;
@@ -41,7 +42,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 33px;
+      padding: 0px 8px;
       margin-right: 8px;
     }
     &__title {
