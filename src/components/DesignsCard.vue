@@ -1,6 +1,6 @@
 <template>
   <router-link :to="editLink" class="card">
-    <img class="card__img" :src="img" />
+    <div class="card__img" :style="{'background-image': `url(${img})`}"></div>
     <div class="card-data">
       <div class="card-data__id">{{id}}</div>
       <div class="card-data__title">{{title}}</div>
@@ -31,7 +31,10 @@ export default {
 .card {
   &__img {
     margin-bottom: 16px;
-    max-width: 300px;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   &-data {
     display: flex;
