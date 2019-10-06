@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { getDataApi, getDesignById } from "../api/api";
+import { getDataApi, getDesignById, sendEditedData } from "../api/api";
 
 Vue.use(Vuex);
 
@@ -34,6 +34,15 @@ export default new Vuex.Store({
     },
     UPDATE_CURRENT_VALUE(state, data) {
       state.currentDesign[data.name] = data.value;
+    },
+    UPD_DATA: (state, updItem) => {
+      state.designsData = state.designsData.map(item => {
+        if (item.id == updItem.id) {
+          return updItem;
+        } else {
+          return item;
+        }
+      });
     }
   },
   actions: {
@@ -53,6 +62,10 @@ export default new Vuex.Store({
     },
     updateCurrentValue({ commit }, data) {
       commit("UPDATE_CURRENT_VALUE", data);
+    },
+    async sendData({ commit }, item) {
+      const { data } = await sendEditedData(item);
+      commit("UPD_DATA", data);
     }
   }
 });

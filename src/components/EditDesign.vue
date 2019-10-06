@@ -33,7 +33,7 @@
     </section>
     <div class="add-page__btns">
       <DeleteBtn />
-      <PrimaryBtn title="Сохранить и закрыть" />
+      <PrimaryBtn title="Сохранить и закрыть" @click.native="saveData" />
     </div>
   </div>
 </template>
@@ -78,6 +78,10 @@ export default {
         name: "link",
         value: value
       });
+    },
+    saveData() {
+      console.log("+");
+      this.$store.dispatch("sendData", this.getCurrentDesign);
     }
   }
 };
