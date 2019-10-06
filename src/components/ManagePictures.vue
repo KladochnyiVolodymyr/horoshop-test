@@ -6,6 +6,9 @@
     <div class="add-picture__images" v-else>
       <div class="picture-item" v-for="img in images" :key="img.id">
         <img class="picture-item__img" :src="img.src" />
+        <div class="picture-item__delete" @click="deleteImg(img.id)">
+          <img src="@/assets/svg/delete.svg" />
+        </div>
       </div>
       <div class="add-picture__new">
         <input type="file" @change="addNewImg" id="file" />
@@ -33,6 +36,9 @@ export default {
       let file = event.target.files[0];
       const _PREVIEW_URL = URL.createObjectURL(file);
       this.$store.dispatch("addNewImg", _PREVIEW_URL);
+    },
+    deleteImg(id) {
+      this.$store.dispatch("deleteImg", id);
     }
   }
 };
@@ -74,15 +80,35 @@ export default {
 }
 .picture-item {
   margin-right: 8px;
+  position: relative;
+  height: 100%;
+  &:hover {
+    cursor: pointer;
+    .picture-item__delete {
+      display: flex;
+    }
+    .picture-item__img {
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+      opacity: 0.3;
+    }
+  }
   &__img {
     max-width: 120px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
     border-radius: 3px;
-    &:hover {
-      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-      cursor: pointer;
-    }
+  }
+  &__delete {
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    right: 4px;
+    bottom: 8px;
+    display: none;
   }
 }
 </style>

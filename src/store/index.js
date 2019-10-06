@@ -26,6 +26,11 @@ export default new Vuex.Store({
         src: src,
         id: new Date().getTime()
       });
+    },
+    DELETE_IMG: (state, id) => {
+      state.currentDesign.images = state.currentDesign.images.filter(img => {
+        return img.id !== id;
+      });
     }
   },
   actions: {
@@ -39,6 +44,9 @@ export default new Vuex.Store({
     },
     addNewImg({ commit }, src) {
       commit("ADD_NEW_IMG", src);
+    },
+    deleteImg({ commit }, id) {
+      commit("DELETE_IMG", id);
     }
   }
 });
