@@ -80,7 +80,6 @@ export default {
       });
     },
     saveData() {
-      console.log("+");
       this.$store.dispatch("sendData", this.getCurrentDesign);
     }
   }

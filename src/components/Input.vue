@@ -1,5 +1,5 @@
 <template>
-  <input class="input" :placeholder="placeholder" @input="test" />
+  <input class="input" :placeholder="placeholder" @input="getValue" />
 </template>
 <script>
 export default {
@@ -12,7 +12,7 @@ export default {
     }
   },
   methods: {
-    test(e) {
+    getValue(e) {
       this.updateValue(e.target.value);
     }
   }
