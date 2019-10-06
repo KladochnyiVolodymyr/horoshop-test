@@ -31,6 +31,9 @@ export default new Vuex.Store({
       state.currentDesign.images = state.currentDesign.images.filter(img => {
         return img.id !== id;
       });
+    },
+    UPDATE_CURRENT_VALUE(state, data) {
+      state.currentDesign[data.name] = data.value;
     }
   },
   actions: {
@@ -47,6 +50,9 @@ export default new Vuex.Store({
     },
     deleteImg({ commit }, id) {
       commit("DELETE_IMG", id);
+    },
+    updateCurrentValue({ commit }, data) {
+      commit("UPDATE_CURRENT_VALUE", data);
     }
   }
 });

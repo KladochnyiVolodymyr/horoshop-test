@@ -1,11 +1,19 @@
 <template>
-  <input class="input" :placeholder="placeholder" />
+  <input class="input" :placeholder="placeholder" @input="test" />
 </template>
 <script>
 export default {
   props: {
     placeholder: {
       type: String
+    },
+    updateValue: {
+      type: Function
+    }
+  },
+  methods: {
+    test(e) {
+      this.updateValue(e.target.value);
     }
   }
 };

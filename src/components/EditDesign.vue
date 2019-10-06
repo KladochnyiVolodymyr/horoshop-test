@@ -6,11 +6,15 @@
     <section class="fields">
       <div class="fields-header">
         <div class="fields__id">
-          <Input placeholder="###" v-model="getCurrentDesign.id" />
+          <Input placeholder="###" :value="getCurrentDesign.id" :update-value="updateIdValue" />
           <span class="fields__icon">№</span>
         </div>
         <div class="fields__title">
-          <Input placeholder="Design Title" v-model="getCurrentDesign.name" />
+          <Input
+            placeholder="Design Title"
+            :value="getCurrentDesign.name"
+            :update-value="updateTitleValue"
+          />
         </div>
       </div>
       <div class="fields-images">
@@ -18,7 +22,11 @@
       </div>
       <div class="fields-footer">
         <div class="fields__link">
-          <Input placeholder="https://design###.horoshop.ua/" v-model="getCurrentDesign.link" />
+          <Input
+            placeholder="https://design###.horoshop.ua/"
+            :value="getCurrentDesign.link"
+            :update-value="updateLinkValue"
+          />
           <img class="fields__icon" src="@/assets/svg/link.svg" />
         </div>
       </div>
@@ -53,6 +61,23 @@ export default {
   computed: {
     getCurrentDesign() {
       return this.$store.state.currentDesign;
+    }
+  },
+  methods: {
+    updateIdValue(value) {
+      this.$store.dispatch("updateCurrentValue", { name: "id", value: value });
+    },
+    updateTitleValue(value) {
+      this.$store.dispatch("updateCurrentValue", {
+        name: "name",
+        value: value
+      });
+    },
+    updateLinkValue(value) {
+      this.$store.dispatch("updateCurrentValue", {
+        name: "link",
+        value: value
+      });
     }
   }
 };
