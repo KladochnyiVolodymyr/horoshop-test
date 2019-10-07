@@ -19,8 +19,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "@/assets/scss/helpers";
 .input {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: $border;
   box-sizing: border-box;
   border-radius: 3px;
   padding: 7px 11px;
