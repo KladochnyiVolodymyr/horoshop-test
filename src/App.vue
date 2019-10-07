@@ -12,15 +12,5 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  margin: 0;
-  height: 100%;
-}
-html,
-#app {
-  height: 100%;
-}
-a {
-  text-decoration: none;
-}
+@import "./assets/scss/reset";
 </style>

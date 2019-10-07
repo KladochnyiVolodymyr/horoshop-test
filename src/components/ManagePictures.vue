@@ -7,7 +7,7 @@
           <img src="@/assets/svg/delete.svg" />
         </div>
       </div>
-      <div class="add-picture__new">
+      <div class="add-picture__new" :class="{empty: isEmpty}">
         <input type="file" @change="addNewImg" id="file" />
         <label for="file">
           <div class="add-picture__empty" v-if="isEmpty">
@@ -74,7 +74,9 @@ export default {
     flex-wrap: wrap;
   }
   &__new {
-    width: 100%;
+    &.empty {
+      width: 100%;
+    }
     input {
       width: 0px;
       height: 0px;

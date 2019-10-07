@@ -59,7 +59,6 @@ export default new Vuex.Store({
       state.currentDesign.link = "";
     },
     ADD_NEW_DESIGN: (state, newDesignsData) => {
-      state.currentDesign._id = new Date().getTime();
       state.designsData = [...newDesignsData];
     }
   },

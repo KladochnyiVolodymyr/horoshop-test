@@ -1,4 +1,6 @@
 import data from "./db";
+import { cloneDeep } from "lodash";
+
 var dataArray = [...data];
 export function getDataApi() {
   return new Promise(resolve => {
@@ -39,7 +41,8 @@ export function deleteDesign(id) {
 }
 
 export function addNewDesign(newDesign) {
-  dataArray.push(newDesign);
+  newDesign._id = new Date().getTime();
+  dataArray.push(cloneDeep(newDesign));
   return new Promise(resolve => {
     resolve({
       data: dataArray
