@@ -49,6 +49,7 @@ export default {
 .designs {
   background: #2c3d39;
   padding: 24px 32px;
+  min-height: 100vh;
   &__title {
     font-size: 24px;
     color: #fff;
