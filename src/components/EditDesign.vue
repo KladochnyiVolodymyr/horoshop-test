@@ -33,7 +33,8 @@
     </section>
     <div class="add-page__btns">
       <DeleteBtn @click.native="deleteDesign" v-if="isRouterId" />
-      <PrimaryBtn title="Сохранить и закрыть" @click.native="save" />
+      <PrimaryBtn title="Сохранить и закрыть" @click.native="save" v-if="validation" />
+      <p class="error-text" v-else>Потрібно заповнити всі поля</p>
     </div>
   </div>
 </template>
@@ -65,6 +66,11 @@ export default {
     },
     isRouterId() {
       return this.$route.params.id;
+    },
+    validation() {
+      return (
+        this.getCurrentDesign.id && this.getCurrentDesign.images.length !== 0
+      );
     }
   },
   methods: {
@@ -156,5 +162,9 @@ export default {
     left: -25px;
     top: 8px;
   }
+}
+.error-text {
+  color: red;
+  margin-top: 30px;
 }
 </style>
